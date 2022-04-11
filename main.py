@@ -6,15 +6,15 @@ lst = []
 img = pygame.image.load('assets/car.png')
 
 a = 0
-while a < 570:
+while a < 1170:
     a += 30
-    lst.append(((a, 0), (a, 600)))
+    lst.append(((a, 0), (a, 1200)))
 lst2 = []
 
 a = 0
-while a < 570:
+while a < 1170:
     a += 30
-    lst2.append(((0, a), (600, a)))
+    lst2.append(((0, a), (1200, a)))
 lst3 = (lst + lst2)
 
 
@@ -33,12 +33,13 @@ class Jeu:
 
     def __init__(self):
 
-        self.ecran = pygame.display.set_mode((600, 600))
+        self.ecran = pygame.display.set_mode((1200, 1000))
         pygame.display.set_caption('ex.1')
         self.jeu_encours = True
         self.grille = Grille(self.ecran)
 
     def fonction_principale(self):
+        #vitesse voiture
         step = 1
         p1 = 10
         p2 = 10
