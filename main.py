@@ -2,7 +2,8 @@ import pygame
 import sys
 
 lst = []
-img = pygame.image.load('car.png')
+#importer l'image
+img = pygame.image.load('assets/car.png')
 
 a = 0
 while a < 570:
@@ -50,6 +51,7 @@ class Jeu:
 
             self.ecran.fill((200, 200, 200))
             self.grille.afficher()
+            #bouger la voiture
             key_input = pygame.key.get_pressed()
             if key_input[pygame.K_LEFT]:
                 p1 -= step
@@ -59,7 +61,9 @@ class Jeu:
                 p1 += step
             if key_input[pygame.K_DOWN]:
                 p2 += step
+            #afficher image
             self.ecran.blit(img, (p1, p2))
+
             pygame.display.update()
             pygame.display.flip()
 
