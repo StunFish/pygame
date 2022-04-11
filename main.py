@@ -24,7 +24,7 @@ class Grille:
 
     def afficher(self):
         for ligne in self.lignes:
-            pygame.draw.line(self.ecran, (0, 0, 0), ligne[0], ligne[1], 2)
+            pygame.draw.line(self.ecran, (100, 100, 100), ligne[0], ligne[1], 2)
 
 
 class Jeu:
@@ -45,7 +45,7 @@ class Jeu:
                 if event.type == pygame.QUIT:
                     sys.exit()
 
-            self.ecran.fill((240, 240, 240))
+            self.ecran.fill((200, 200, 200))
             self.grille.afficher()
 
             pygame.display.flip()
