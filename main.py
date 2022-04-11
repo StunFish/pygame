@@ -2,6 +2,7 @@ import pygame
 import sys
 
 lst = []
+img = pygame.image.load('car.png')
 
 a = 0
 while a < 570:
@@ -37,7 +38,9 @@ class Jeu:
         self.grille = Grille(self.ecran)
 
     def fonction_principale(self):
-
+        step = 1
+        p1 = 10
+        p2 = 10
         while self.jeu_encours:
 
             for event in pygame.event.get():
@@ -47,7 +50,17 @@ class Jeu:
 
             self.ecran.fill((200, 200, 200))
             self.grille.afficher()
-
+            key_input = pygame.key.get_pressed()
+            if key_input[pygame.K_LEFT]:
+                p1 -= step
+            if key_input[pygame.K_UP]:
+                p2 -= step
+            if key_input[pygame.K_RIGHT]:
+                p1 += step
+            if key_input[pygame.K_DOWN]:
+                p2 += step
+            self.ecran.blit(img, (p1, p2))
+            pygame.display.update()
             pygame.display.flip()
 
 
