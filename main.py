@@ -7,14 +7,12 @@ a = 0
 while a < 570:
     a += 30
     lst.append(((a, 0), (a, 600)))
-print(lst)
 lst2 = []
 
 a = 0
 while a < 570:
     a += 30
     lst2.append(((0, a), (600, a)))
-print(lst2)
 lst3 = (lst + lst2)
 
 
@@ -53,9 +51,7 @@ class Jeu:
             pygame.display.flip()
 
 
-if __name__ != '__main__':
-    pass
-else:
+if __name__ == '__main__':
     pygame.init()
     Jeu().fonction_principale()
     pygame.quit()
