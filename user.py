@@ -7,8 +7,6 @@ class Car:
 
 
     def move(self, key_input,  p1, p2, p3, p4, step):
-
-
         if key_input[pygame.K_LEFT] and p1 >= 0:
             p1 -= step
         if key_input[pygame.K_UP] and p2 >= -50:
@@ -28,3 +26,10 @@ class Car:
             p4 += step
 
         return p1, p2, p3, p4
+    def boost(self, key_input,step, bst):
+        if bst > 0 and key_input[pygame.K_LSHIFT]:
+            step = 10
+            bst -= 0.1
+        else:
+            step = 5
+        return step, bst

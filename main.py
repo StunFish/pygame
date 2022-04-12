@@ -9,6 +9,8 @@ ing3 = pygame.image.load('assets/balle.png.png')
 
 
 
+
+
 class Grille:
 
     def __init__(self, ecran):
@@ -30,7 +32,7 @@ class Jeu:
         self.grille = Grille(self.ecran)
 
     def fonction_principale(self):
-
+        bst = 100
         step = 4
         p1 = 950
         p2 = 830
@@ -48,12 +50,22 @@ class Jeu:
             self.ecran.fill((200, 200, 200))
             self.grille.afficher()
             key_input = pygame.key.get_pressed()
+
+            step, bst = user.Car.boost(self, key_input,step, bst)
+            # police
+            font = pygame.font.Font('freesansbold.ttf', 32)
+            # ce qui est écrit et couleur
+            text = font.render(str(int(bst)), True, (0, 0, 0))
+            # jsp
+            textRect = text.get_rect()
+            # position
+            textRect.center = (350, 350)
             p1, p2, p3, p4 = user.Car.move(self, key_input,  p1, p2, p3, p4, step)
 
             self.ecran.blit(img2, (p1, p2))
             self.ecran.blit(img, (p3, p4))
             self.ecran.blit(ing3, (p5, p6))
-
+            self.ecran.blit(text, textRect)
 
             pygame.display.update()
             pygame.display.flip()
