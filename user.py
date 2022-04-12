@@ -26,4 +26,5 @@ class Car:
             p3 += step
         if key_input[pygame.K_s] and p4 <= 830:
             p4 += step
+
         return p1, p2, p3, p4

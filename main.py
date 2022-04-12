@@ -1,30 +1,19 @@
 import pygame
 import sys
 import user
+import background
 
-lst = []
 img = pygame.image.load('assets/car.png')
 img2 = pygame.image.load('assets/car2.png')
 ing3 = pygame.image.load('assets/balle.png.png')
 
-a = 0
-while a < 1170:
-    a += 30
-    lst.append(((a, 0), (a, 1200)))
-lst2 = []
-
-a = 0
-while a < 1170:
-    a += 30
-    lst2.append(((0, a), (1200, a)))
-lst3 = (lst + lst2)
 
 
 class Grille:
 
     def __init__(self, ecran):
         self.ecran = ecran
-        self.lignes = lst3
+        self.lignes = background.quadrillage()
 
     def afficher(self):
         for ligne in self.lignes:
@@ -43,7 +32,6 @@ class Jeu:
     def fonction_principale(self):
 
         step = 4
-
         p1 = 950
         p2 = 830
         p3 = 30
@@ -57,11 +45,9 @@ class Jeu:
 
                 if event.type == pygame.QUIT:
                     sys.exit()
-
             self.ecran.fill((200, 200, 200))
             self.grille.afficher()
             key_input = pygame.key.get_pressed()
-
             p1, p2, p3, p4 = user.Car.move(self, key_input,  p1, p2, p3, p4, step)
 
             self.ecran.blit(img2, (p1, p2))
@@ -71,22 +57,6 @@ class Jeu:
 
             pygame.display.update()
             pygame.display.flip()
-
-img = pygame.image.load('assets/car.png')
-
-a = 0
-while a < 1170:
-    a += 30
-    lst.append(((a, 0), (a, 1200)))
-lst2 = []
-
-a = 0
-while a < 1170:
-    a += 30
-    lst2.append(((0, a), (1200, a)))
-lst3 = (lst + lst2)
-
-
 
 if __name__ == '__main__':
     pygame.init()
